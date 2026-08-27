@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katriel Douglas Massoca — Suporte de TI &amp; Desenvolvimento</title>
+<meta name="description" content="Currículo de Katriel Douglas Massoca — Suporte técnico de TI (N1, N2, N3) em transição para Desenvolvimento de Sistemas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #E9ECE6;
+    --bg-panel: #F4F5F1;
+    --ink: #1C231F;
+    --ink-soft: #52594F;
+    --line: #C9CFC1;
+    --amber: #C9791E;
+    --amber-soft: #F0DCC0;
+    --teal: #24685A;
+    --teal-soft: #D7E6E0;
+    --console: #1B2420;
+    --console-line: #33413A;
+    --console-text: #DCE6DD;
+    --radius: 3px;
+    --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  ::selection{background:var(--amber-soft); color:var(--ink);}
+
+  .wrap{max-width:880px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- STATUS BAR ---------- */
+  .statusbar{
+    background:var(--console);
+    color:var(--console-text);
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.04em;
+    border-bottom:1px solid var(--console-line);
+    position:sticky; top:0; z-index:50;
+  }
+  .statusbar .wrap{
+    max-width:880px;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 28px;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .status-left{display:flex; align-items:center; gap:10px;}
+  .dot{
+    width:8px; height:8px; border-radius:50%;
+    background:#7CD9A5;
+    box-shadow:0 0 0 0 rgba(124,217,165,.6);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(124,217,165,.55);}
+    70%{box-shadow:0 0 0 7px rgba(124,217,165,0);}
+    100%{box-shadow:0 0 0 0 rgba(124,217,165,0);}
+  }
+  .status-right{display:flex; gap:18px; opacity:.85; flex-wrap:wrap;}
+  .status-right span b{color:var(--console-text); font-weight:600;}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding:76px 0 54px; border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--teal); margin:0 0 18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--teal); display:inline-block;}
+  h1{
+    font-family:var(--mono);
+    font-size:clamp(34px, 6vw, 56px);
+    font-weight:600;
+    margin:0 0 10px;
+    letter-spacing:-.01em;
+    line-height:1.05;
+  }
+  .role-line{
+    font-size:clamp(16px,2.4vw,19px);
+    color:var(--ink-soft);
+    margin:0 0 30px;
+    max-width:640px;
+  }
+  .role-line .arrow{color:var(--amber); font-weight:600;}
+
+  .contact-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .chip{
+    font-family:var(--mono); font-size:13px;
+    border:1px solid var(--line);
+    background:var(--bg-panel);
+    padding:8px 14px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    color:var(--ink);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .chip:hover{border-color:var(--teal); transform:translateY(-1px);}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:54px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .sec-head{
+    display:flex; align-items:baseline; gap:14px;
+    margin-bottom:28px;
+  }
+  .sec-num{font-family:var(--mono); font-size:12px; color:var(--amber);}
+  h2{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--ink);
+  }
+  .sec-line{flex:1; height:1px; background:var(--line);}
+
+  /* Objetivo */
+  .objetivo-box{
+    background:var(--bg-panel);
+    border-left:3px solid var(--teal);
+    padding:22px 26px;
+    border-radius:0 var(--radius) var(--radius) 0;
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:680px;
+  }
+
+  /* Ticket log (experiência) */
+  .ticket{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-top:1px dashed var(--line);
+  }
+  .ticket:first-of-type{border-top:none; padding-top:0;}
+  .ticket-id{
+    font-family:var(--mono); font-size:12px; color:var(--ink-soft);
+    padding-top:3px;
+  }
+  .ticket-id .n{display:block; color:var(--ink); font-size:15px; font-weight:600; margin-bottom:6px;}
+  .ticket-body h3{
+    margin:0 0 4px;
+    font-size:17px;
+    font-weight:600;
+    font-family:var(--sans);
+  }
+  .ticket-meta{
+    display:flex; flex-wrap:wrap; gap:8px 14px;
+    font-family:var(--mono); font-size:12px; color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .tag{
+    display:inline-block;
+    background:var(--teal-soft);
+    color:var(--teal);
+    padding:2px 9px;
+    border-radius:12px;
+    font-size:11px;
+    font-family:var(--mono);
+    letter-spacing:.03em;
+  }
+  .tag.amber{background:var(--amber-soft); color:var(--amber);}
+  ul.bullets{margin:0; padding-left:18px; color:var(--ink-soft); font-size:14.5px;}
+  ul.bullets li{margin-bottom:5px;}
+  .ticket-body details{margin-top:2px;}
+  .ticket-body summary{
+    cursor:pointer; font-family:var(--mono); font-size:12px;
+    color:var(--teal); list-style:none; user-select:none;
+  }
+  .ticket-body summary::-webkit-details-marker{display:none;}
+  .ticket-body summary::before{content:"+ "; color:var(--amber);}
+  .ticket-body details[open] summary::before{content:"– ";}
+  .ticket-body summary:hover{text-decoration:underline;}
+
+  /* Formação */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .edu-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    padding:20px;
+    border-radius:var(--radius);
+  }
+  .edu-card .period{font-family:var(--mono); font-size:12px; color:var(--amber); margin-bottom:8px; display:block;}
+  .edu-card h3{margin:0 0 4px; font-size:15.5px;}
+  .edu-card p{margin:0; font-size:13.5px; color:var(--ink-soft);}
+
+  /* Skills / cursos */
+  .skills-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:14px;}
+  .skill-card{
+    border:1px solid var(--line);
+    padding:16px 18px;
+    border-radius:var(--radius);
+    background:var(--bg-panel);
+  }
+  .skill-card .k{font-family:var(--mono); font-size:11px; color:var(--teal); text-transform:uppercase; letter-spacing:.08em; display:block; margin-bottom:6px;}
+  .skill-card p{margin:0; font-size:14px; color:var(--ink);}
+
+  /* Footer */
+  footer{padding:60px 0 70px;}
+  .footer-inner{
+    background:var(--console);
+    color:var(--console-text);
+    border-radius:var(--radius);
+    padding:40px;
+    text-align:center;
+  }
+  .footer-inner h2{color:var(--console-text); font-size:20px; text-transform:none; letter-spacing:0; font-family:var(--sans); font-weight:600; margin-bottom:10px;}
+  .footer-inner p{color:#9FB0A6; max-width:480px; margin:0 auto 24px; font-size:14.5px;}
+  .footer-links{display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
+  .footer-links a{
+    font-family:var(--mono); font-size:13px;
+    border:1px solid var(--console-line);
+    padding:9px 16px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .footer-links a:hover{border-color:#7CD9A5; background:rgba(124,217,165,.08);}
+  .fine{margin-top:34px; text-align:center; font-family:var(--mono); font-size:11.5px; color:var(--ink-soft); opacity:.7;}
+
+  @media (max-width:640px){
+    .ticket{grid-template-columns:1fr;}
+    .ticket-id{display:flex; align-items:center; gap:10px;}
+    .ticket-id .n{margin-bottom:0;}
+    .edu-grid{grid-template-columns:1fr;}
+    .status-right{display:none;}
+    .footer-inner{padding:28px 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .dot{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  :focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+  <div class="statusbar">
+    <div class="wrap">
+      <div class="status-left">
+        <span class="dot" aria-hidden="true"></span>
+        <span>KATRIEL_MASSOCA :: <span id="uptime">00000</span> dias de atuação em TI &amp; atendimento</span>
+      </div>
+      <div class="status-right">
+        <span>STATUS: <b>disponível para novas oportunidades</b></span>
+        <span>FOCO: <b>desenvolvimento</b></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <p class="eyebrow">currículo · perfil profissional</p>
+      <h1>Katriel Douglas<br>Massoca</h1>
+      <p class="role-line">Suporte técnico de TI (N1, N2 e N3) <span class="arrow">→</span> em transição para Desenvolvimento de Sistemas, cursando ADS.</p>
+      <div class="contact-row">
+        <a class="chip" href="mailto:katrieldouglas@gmail.com">✉ katrieldouglas@gmail.com</a>
+        <a class="chip" href="tel:+5519971464157">☎ +55 (19) 97146-4157</a>
+        <a class="chip" href="https://www.linkedin.com/in/katriel-douglas/" target="_blank" rel="noopener">in/katriel-douglas</a>
+        <span class="chip" style="cursor:default;">📍 Socorro, SP — Brasil</span>
+      </div>
+    </header>
+
+    <section id="objetivo" class="reveal">
+      <div class="sec-head"><span class="sec-num">§01</span><h2>Objetivo</h2><span class="sec-line"></span></div>
+      <div class="objetivo-box">
+        Atuar como Desenvolvedor Júnior ou em Suporte de TI com foco em evolução para desenvolvimento, aplicando
+        conhecimentos em Python, HTML, CSS, JavaScript, Git e infraestrutura de TI (Zabbix, Grafana). Experiência
+        sólida em suporte técnico N1-N3, automação de processos e atendimento ao cliente, buscando contribuir com
+        soluções eficientes e crescimento contínuo.
+      </div>
+    </section>
+
+    <section id="skills-tecnicas" class="reveal">
+      <div class="sec-head"><span class="sec-num">§02</span><h2>Habilidades técnicas</h2><span class="sec-line"></span></div>
+      <div class="skills-grid">
+        <div class="skill-card"><span class="k">Linguagens / Web</span><p>Python · HTML · CSS · JavaScript · Git/GitHub</p></div>
+        <div class="skill-card"><span class="k">Infraestrutura</span><p>Zabbix · Grafana · Redes (switches, roteadores, Ubiquiti) · Help Desk/Service Desk</p></div>
+        <div class="skill-card"><span class="k">Automação</span><p>N8N</p></div>
+        <div class="skill-card"><span class="k">ERPs / Sistemas</span><p>Volpe, Vixen, TravelXS, Omnibees, DigiSac</p></div>
+        <div class="skill-card"><span class="k">Indicadores</span><p>NPS · CSAT · Pacote Office</p></div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="reveal">
+      <div class="sec-head"><span class="sec-num">§03</span><h2>Experiência profissional</h2><span class="sec-line"></span></div>
+
+      <div class="ticket">
+        <div class="ticket-id"><span class="n">#007</span>fev 2026 – abr 2026</div>
+        <div class="ticket-body">
+          <h3>Customer Experience (CX) / Reputação de Marca</h3>
+          <div class="ticket-meta">
+            <span>Aquática American Park</span>
+            <span class="tag">CX &amp; SAC</span>
+            <span class="tag amber">Automação</span>
+          </div>
+          <details>
+            <summary>ver responsabilidades</summary>
+            <ul class="bullets">
+              <li>Implantação de Roadmap da Jornada do Cliente, identificando pontos de contato e oportunidades de melhoria contínua entre departamentos.</li>
+              <li>Gestão de reputação da marca em plataformas digitais e canais de atendimento.</li>
+              <li>Estruturação e implantação do SAC (Serviço de Atendimento ao Cliente).</li>
+              <li>Treinamentos de atendimento e abordagem nos PDVs, com foco em experiência e satisfação do cliente.</li>
+              <li>Criação de fluxos para atendimento de demandas pendentes e comunicação visual do parque.</li>
+              <li>Automação de processos com Python e N8N para monitoramento e análise de avaliações.</li>
+              <li>Elaboração de indicadores de satisfação (NPS, CSAT) e relatórios gerenciais.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-id"><span class="n">#006</span>jan 2024 – fev 2026</div>
+        <div class="ticket-body">
+          <h3>Auxiliar de TI</h3>
+          <div class="ticket-meta">
+            <span>Aquática American Park / Hotel Cabanas Acqua</span>
+            <span class="tag">Suporte N1-N3</span>
+            <span class="tag amber">Infraestrutura</span>
+          </div>
+          <details>
+            <summary>ver responsabilidades</summary>
+            <ul class="bullets">
+              <li>Suporte técnico aos usuários (N1, N2 e apoio em N3).</li>
+              <li>Monitoramento e observabilidade de infraestrutura de redes corporativas com Zabbix e Grafana.</li>
+              <li>Suporte técnico às operações do parque e do Hotel Cabanas Acqua, garantindo o funcionamento de sistemas e infraestrutura de TI.</li>
+              <li>Implantação de sistema de chamados (Help Desk / Service Desk) e treinamento dos colaboradores em boas práticas de TI.</li>
+              <li>Suporte a sistemas ERP (Volpe, Vixen, TravelXS, Omnibees, DigiSac) e sistemas de reservas.</li>
+              <li>Instalação, configuração e manutenção de computadores, impressoras e equipamentos de TI.</li>
+              <li>Configuração e manutenção de redes, switches, roteadores e equipamentos Ubiquiti.</li>
+              <li>Controle de ativos e inventário de equipamentos.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-id"><span class="n">#005</span>mai 2023 – out 2023</div>
+        <div class="ticket-body">
+          <h3>Auxiliar Administrativo / Agente SEBRAE Aqui</h3>
+          <div class="ticket-meta">
+            <span>ACE Socorro</span>
+            <span class="tag">Administrativo</span>
+          </div>
+          <details>
+            <summary>ver responsabilidades</summary>
+            <ul class="bullets">
+              <li>Processos de formalização empresarial: inscrições municipais, cadastros e regularização em portais governamentais.</li>
+              <li>Atendimento ao público e orientação a empreendedores.</li>
+              <li>Apoio na abertura, encerramento e formalização de empresas.</li>
+              <li>Organização de eventos, cursos e consultorias (financeiro, marketing, desenvolvimento pessoal etc.).</li>
+              <li>Elaboração de relatórios, planilhas e controle de documentos.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-id"><span class="n">#001-004</span>jun 2018 – abr 2023</div>
+        <div class="ticket-body">
+          <h3>Outras experiências (comercial, operacional e vendas)</h3>
+          <div class="ticket-meta">
+            <span class="tag">Comercial</span>
+            <span class="tag">Operacional</span>
+          </div>
+          <details>
+            <summary>ver histórico completo</summary>
+            <ul class="bullets">
+              <li><strong>Vendedor</strong> — Primos Materiais para Construção (dez 2022 – abr 2023): orçamento e venda de materiais, controle de estoque, pós-venda.</li>
+              <li><strong>Vendedor / Marketing / Mídias Sociais</strong> — Loja Atol das Rocas (fev 2021 – ago 2022): atendimento presencial e online, criação de conteúdo, campanhas promocionais.</li>
+              <li><strong>Expedição</strong> — Indústria de Bebidas Socorro (set 2020 – fev 2021): separação e conferência de pedidos, controle de estoque.</li>
+              <li><strong>Operador de Máquina</strong> — DeltaPlus Prosafety (jun 2018 – nov 2019): operação de máquinas industriais conforme normas de segurança e qualidade.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="formacao" class="reveal">
+      <div class="sec-head"><span class="sec-num">§04</span><h2>Formação acadêmica</h2><span class="sec-line"></span></div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <span class="period">2025 – 2026</span>
+          <h3>Análise e Desenvolvimento de Sistemas (ADS)</h3>
+          <p>Universidade São Francisco</p>
+        </div>
+        <div class="edu-card">
+          <span class="period">2024 – 2025</span>
+          <h3>Análise e Desenvolvimento de Sistemas (ADS)</h3>
+          <p>Uniasselvi</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="sec-head"><span class="sec-num">§05</span><h2>Cursos</h2><span class="sec-line"></span></div>
+      <div class="skills-grid">
+        <div class="skill-card"><span class="k">Rocketseat</span><p>Fundamentos da Tecnologia e Programação</p></div>
+        <div class="skill-card"><span class="k">Rocketseat</span><p>Fundamentos de Programação Web — HTML, CSS, JS, Git e GitHub</p></div>
+        <div class="skill-card"><span class="k">Rocketseat</span><p>Desenvolvimento Web (em andamento)</p></div>
+        <div class="skill-card"><span class="k">Google IT</span><p>Administração de Sistemas e Infraestrutura de TI (cursando)</p></div>
+        <div class="skill-card"><span class="k">Consys Tecnologia</span><p>Pacote Office completo</p></div>
+        <div class="skill-card"><span class="k">SEBRAE</span><p>Gestão e Administração de Pessoas</p></div>
+        <div class="skill-card"><span class="k">SEBRAE</span><p>Empreendedorismo, Finanças, Legislação, Marketing, Vendas e Planejamento</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <h2>Vamos conversar?</h2>
+        <p>Aberto a oportunidades em suporte de TI e, principalmente, em desenvolvimento — trago experiência sólida em infraestrutura, atendimento e automação de processos.</p>
+        <div class="footer-links">
+          <a href="mailto:katrieldouglas@gmail.com">Enviar e-mail</a>
+          <a href="https://www.linkedin.com/in/katriel-douglas/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="tel:+5519971464157">Ligar</a>
+        </div>
+      </div>
+      <p class="fine">Katriel Douglas Massoca — Socorro, SP, Brasil</p>
+    </div>
+  </footer>
+
+<script>
+  // reveal on scroll
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  els.forEach(el=>io.observe(el));
+
+  // uptime counter: days since jun/2018 (início da vida profissional)
+  const start = new Date(2018,5,1);
+  const now = new Date();
+  const days = Math.floor((now-start)/(1000*60*60*24));
+  const el = document.getElementById('uptime');
+  let cur = 0;
+  const target = days;
+  const step = Math.max(1, Math.floor(target/60));
+  const timer = setInterval(()=>{
+    cur += step;
+    if(cur>=target){cur=target; clearInterval(timer);}
+    el.textContent = cur.toLocaleString('pt-BR');
+  }, 16);
+</script>
+
+</body>
+</html>
